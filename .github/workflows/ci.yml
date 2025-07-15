@@ -18,11 +18,11 @@ jobs:
     env:
       PROCURSUS: /opt/procursus
       PATH: /opt/procursus/bin:/opt/procursus/libexec/gnubin:/usr/local/lib/ruby/gems/2.7.0/bin:/usr/local/opt/ruby@2.7/bin:/usr/local/opt/pipx_bin:/Users/runner/.cargo/bin:/usr/local/opt/curl/bin:/usr/local/bin:/usr/local/sbin:/Users/runner/bin:/Users/runner/.yarn/bin:/Users/runner/Library/Android/sdk/tools:/Users/runner/Library/Android/sdk/platform-tools:/Users/runner/Library/Android/sdk/ndk-bundle:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/usr/bin:/bin:/usr/sbin:/sbin:/Users/runner/.dotnet/tools:/Users/runner/.ghcup/bin:/Users/runner/hostedtoolcache/stack/2.7.3/x64
-    runs-on: macos-12
+    runs-on: macos-13
     steps:
     - name: Checkout
       id: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         submodules: 'true'
         fetch-depth: 0
@@ -71,7 +71,7 @@ jobs:
     steps:
       - name: Checkout
         id: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           submodules: 'true'
           fetch-depth: 0
@@ -101,21 +101,21 @@ jobs:
           mv ${{ github.workspace }}/.github/workflows/futurerestore3.tar.xz ${{ github.workspace }}/.github/workflows/$(cat ${{ github.workspace }}/.github/workflows/name3.txt)
       - name: futurerestore Linux x86_64 RELEASE Archive
         id: futurerestore-Linux-x86_64-RELEASE-Archive
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: futurerestore-Linux-x86_64-RELEASE
           path: |
             ${{ github.workspace }}/.github/workflows/futurerestore-Linux-x86_64*-RELEASE.tar.xz
       - name: futurerestore Linux x86_64 DEBUG Archive
         id: futurerestore-Linux-x86_64-DEBUG-Archive
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: futurerestore-Linux-x86_64-DEBUG
           path: |
             ${{ github.workspace }}/.github/workflows/futurerestore-Linux-x86_64*-DEBUG.tar.xz
       - name: futurerestore Linux x86_64 ASAN Archive
         id: futurerestore-Linux-x86_64-ASAN-Archive
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: futurerestore-Linux-x86_64-ASAN
           path: |
